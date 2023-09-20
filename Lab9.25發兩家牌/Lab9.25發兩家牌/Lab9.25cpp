@@ -1,0 +1,43 @@
+#include <iostream>
+#include<string>
+#include"DeckOfCards.h"
+#include"Hand.h"
+using namespace std;
+
+DeckOfCards myDeck1;
+Hand myHand(myDeck1);    //使用myDeck這副牌，發一手牌(五張牌)
+Hand comHand(myDeck1);    //使用myDeck這副牌，發一手牌(五張牌)
+string winner(Hand, Hand);
+
+int main(void)
+{
+	DeckOfCards myDeck;
+	myDeck.shuffle();
+	Hand myHand1(myDeck);
+	myHand = myHand1;
+	Hand comHand1(myDeck);
+	comHand = comHand1;
+
+	string  gameResult = "";
+	myHand.print();
+	myHand.setKind();
+	myHand.setMaxFace();
+	myHand.setSuit();
+
+
+	cout << "==========computer===========" << endl;
+
+	comHand.print();
+	comHand.setKind();
+	comHand.setMaxFace();
+	comHand.setSuit();
+
+	gameResult = winner(myHand, comHand);
+	cout << gameResult;
+	system("pause");
+}
+
+string winner(Hand player, Hand computer) //用kind,maxFace,suit比大小
+{
+	
+}
